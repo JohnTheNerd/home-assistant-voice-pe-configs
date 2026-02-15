@@ -1,0 +1,40 @@
+micro_wake_word:
+  id: mww
+  models:
+    - model: https://github.com/kahrendt/microWakeWord/releases/download/v2.1_models/alexa.json
+      id: alexa
+    - model: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/hey_morgan.json
+      id: hey_morgan
+      probability_cutoff: 0.97
+    - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
+      id: !extend stop
+      internal: true
+
+api:
+  encryption:
+    key: !secret encryption_key
+
+select:
+  - platform: template
+    name: "Stop hotword sensitivity"
+    optimistic: true
+    initial_option: Slightly sensitive
+    restore_value: true
+    entity_category: config
+    options:
+      - Slightly sensitive
+      - Moderately sensitive
+      - Very sensitive
+    on_value:
+      lambda: |-
+        if (x == "Slightly sensitive") {
+          id(stop).set_probability_cutoff(127);       // 0.50
+        } else if (x == "Moderately sensitive") {
+          id(stop).set_probability_cutoff(153);       // 0.60
+        } else if (x == "Very sensitive") {
+          id(stop).set_probability_cutoff(216);       // 0.85
+        }
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
