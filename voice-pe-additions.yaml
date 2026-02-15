@@ -38,3 +38,11 @@ select:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+
+packages:
+  main_config:
+    url: https://github.com/esphome/home-assistant-voice-pe
+    files:
+      - path: home-assistant-voice.yaml
+    ref: dev
+    refresh: 1d
