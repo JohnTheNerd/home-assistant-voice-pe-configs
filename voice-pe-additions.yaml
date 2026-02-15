@@ -44,5 +44,11 @@ packages:
     url: https://github.com/esphome/home-assistant-voice-pe
     files:
       - path: home-assistant-voice.yaml
+        vars:
+          mute_switch_on_sound_file: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/mute-switch-on.flac
+          mute_switch_off_sound_file: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/mute-switch-off.flac
+          timer_finished_sound_file: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/timer-finished.flac
+          wake_word_triggered_sound_file: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/wake-word-triggered.flac
+          center_button_press_sound_file: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/center-button-press.flac
     ref: dev
-    refresh: 1d
+    refresh: 0s
