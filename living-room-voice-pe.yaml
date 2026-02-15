@@ -1,0 +1,17 @@
+ota:
+  - platform: esphome
+    id: !extend ota_esphome
+    password: !secret "living_room_voice_pe_ota_password"
+
+esphome:
+  name: living-room-voice-pe
+  friendly_name: Living Room Voice PE
+  name_add_mac_suffix: false
+
+packages:
+  additions:
+    url: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs
+    files:
+      - path: voice-pe-additions.yaml
+    ref: master
+    refresh: 0s
