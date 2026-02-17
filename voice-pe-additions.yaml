@@ -6,6 +6,9 @@ micro_wake_word:
     - model: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/hey_morgan.json
       id: hey_morgan
       probability_cutoff: 0.97
+    - model: https://github.com/JohnTheNerd/home-assistant-voice-pe-configs/raw/refs/heads/master/hey_morgan_take_2.json
+      id: hey_morgan_take_2
+      probability_cutoff: 0.97
     - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
       id: !extend stop
       internal: true
